@@ -1,0 +1,115 @@
+   <style>
+       .focus{
+           position: relative;
+           height:340px;
+           background-size: cover;
+           background: url("<?=__IMG__?>/toutu.png");
+       }
+       .focus>a h1{
+           position: absolute;
+           top:33%;
+           left: 44%;
+           font-size: 24px;
+           text-align: center;
+           color: #ffffff;
+       }
+       .focus>a p{
+           text-align: center;
+           font-size: 16px;
+           color: #ffffff;
+           position: absolute;
+           top:57%;
+           left:35%;
+       }
+       @media screen and (max-width: 1500px) {
+       }
+       @media screen and (max-width: 1200px) {
+           .focus>a p{top:50%;left: 32%;}
+       }
+       @media screen and (max-width: 960px) {
+           .focus>a p{top:50%;left:10%;}
+           .focus>a h1{left: 30%;}
+       }
+   </style>
+<div class="focus">
+    <p></p>
+    <a style="display: block" href="/"><h1>CONTACT US</h1></a>
+    <a style="display: block"  href="/"> <p>Ask about our games, find answers to your questions and get in touch.</p></a>
+
+    </div>
+    <div class="content sub_main" style="margin-top:20px;">
+        <div class="sub_main_box">
+            <div class="sub_content sub_contact content_box">
+                <div class="con clearfix">
+                    <div class="fl item">
+                        <h2><?=\YII::t('common','VisitForum')?></h2>
+                        <div class="text"><?=\YII::t('common','DiscussTips')?></div>
+                        <div class="GoToSub"><img src="<?=__IMG__?>/icon01.png"><a href="/community" style="color: #fff;"><?=\YII::t('common','GoForum')?></a></div>
+                    </div>
+                    <div class="fr item">
+                        <h2><?=\YII::t('common','SupportSection')?></h2>
+                        <div class="text"><?=\YII::t('common','supportStaff')?></div>
+                        <div class="GoToSub"><img src="<?=__IMG__?>/icon02.png"><a href="/support/index" style="color: #fff;"><?=\YII::t('common','GoSupport')?></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sub_main_box" style="border-bottom: 0;">
+            <div class="sub_content sub_contact clearfix content_box02">
+                <div class="tit"><?=\YII::t('common','BusinessInquiries')?></div>
+                <div class="con" ><?=\YII::t('common','mediaMarketing')?><a href="mailto:service@clothesforever.com">service@clothesforever.com</a></div>
+            </div>
+        </div>
+        <div class="sub_main_box" style="border-top: 0;">
+            <div class="sub_content sub_contact content_box03">
+                <div class="tit"><?=\YII::t('common','MailingAddress')?></div>
+                <div class="con clearfix">
+                    <div class="fl img"><img src="<?=__IMG__?>/map01.png" alt=""></div>
+                    <div class="fr text">
+                        <h2><?=\YII::t('common','UK')?></h2>
+                        <dl>
+                            <dt><?=\YII::t('common','CompanyName')?>:</dt>
+                            <dd>Mutant Box Interactive Limited</dd>
+                            <dt><?=\YII::t('common','CompanyID')?>:</dt>
+                            <dd>9792988</dd>
+                            <dt><?=\YII::t('common','Address')?>:</dt>
+                            <dd><?=\YII::t('common','RoadLondon')?></dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="con clearfix">
+                    <div class="fl text">
+                        <h2><?=\YII::t('common','HongKong')?></h2>
+                        <dl>
+                            <dt><?=\YII::t('common','CompanyName')?>:</dt>
+                            <dd><?=\YII::t('common','InteractiveLimited')?></dd>
+                            <dt><?=\YII::t('common','CompanyID')?>:</dt>
+                            <dd>2280853</dd>
+                            <dt><?=\YII::t('common','Address')?>:</dt>
+                            <dd><?=\YII::t('common','CentralHongKong')?></dd>
+                        </dl>
+                    </div>
+                    <div class="fr img"><img src="<?=__IMG__?>/map02.png" alt=""></div>
+                </div>
+                <div class="con clearfix">
+                    <div class="fl img"><img src="<?=__IMG__?>/map03.png" alt=""></div>
+                    <div class="fr text" style="width: 53%">
+                        <h2><?=\YII::t('common','ShangHai')?></h2>
+                        <dl>
+                            <dt><?=\YII::t('common','CompanyName')?>:</dt>
+                            <dd>LaiWan technology (Shanghai) Co., Ltd</dd>
+                            <dt><?=\YII::t('common','CompanyID')?>:</dt>
+                            <dd>91310114093857379H</dd>
+                            <dt><?=\YII::t('common','Address')?>:</dt>
+                            <dd>Rm 1217,NO.6 Building,NO.768,ChenXiang Rd,Jiading District, Shanghai.</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $('.fl.item,.fr.item').height($('.fl.item').height() > $('.fr.item').height() ? $('.fl.item').height() : $('.fr.item').height());
+        });
+    </script>

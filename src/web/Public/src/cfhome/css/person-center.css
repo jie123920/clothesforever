@@ -1,0 +1,75 @@
+	@font-face {font-family: "constanb";
+	    src: url('../fonts/constanb.ttf');
+	    src: url('../fonts/constanb.eot?#iefix') format('embedded-opentype'),
+	    url('../fonts/constanb.ttf') format('ttf'),
+	    url('../fonts/constanb.woff') format('woff'),
+	    url('../fonts/constanb.svg') format('svg');
+	}
+  ul,li,a{text-decoration:none;list-style: none;}
+  *{margin: 0;padding: 0;}
+  .user_con_bd_box{padding-left: 248px;min-height: 500px;}
+  .user_con_bd{border:1px solid #695e598;margin-top: 20px;min-height: 0;}
+  .user-header{width: 100%;height: 50px;background:#b29d8a;line-height: 50px;font-size: 18px;color:#ffffff;}
+  .user-time{margin-left: 20px;}
+  .time{width: 30%;height: 100%;margin-left: 30px;display: inline-block;}
+  .user-id{width: 60%;height: 100%;float: right;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .uesr-unpaid{width:92%;margin: 0 auto;margin-top:32px;overflow: hidden;}
+  .unpaid-title{display: inline-block;}
+  .unpaid-title strong{font-size: 24px;color:#e13f38;}
+  .unpaid-title p{font-size: 18px;color: #000000;line-height:48px;}
+  .unpaid-title p span{font-size: 24px;color: #b50000;}
+  .unpaid-play{width: 262px;height:50px;background:#e23f38;font-size: 24px;line-height:50px;text-align: center;color: #ffffff;}
+  .unpaid-play a{color: #ffffff}
+  .unpaid-play a:hover{color: #ffffff}
+  .unpaid-service{width: 262px;height:50px;background:#695e59;font-size: 24px;line-height:50px;text-align: center;color: #fff;margin-top: 15px;}
+  .unpaid-service a{color: #fff;}
+  .unpaid-service a:hover{color: #fff;}
+  .user-list{width: 92%;margin: 0 auto;margin-top: 26px;overflow: hidden;}
+  .user-list li{width: 99%;height: 172px;border:1px solid #a6a6a6;margin-top: 12px;}
+  .user-list-pic{width: 150px;height:150px;float: left;    margin-top: 10px;margin-left: 10px;}
+  .user-list-pic img{width: 100%;max-height: 150px;}
+  .user-list-details{float: left;text-align: center;line-height:26px;font-size: 18px;color: #695e59;margin-top: 30px;margin-left: 20px}
+  .user-list-details p{text-align: left;}
+  .hide-button{width: 92%;margin: 0 auto;margin-top: 20px;text-align: center;line-height: 30px;font-size: 18px;color: #0062b5;}
+  .hide-button a{color: #695e59;cursor: pointer;}
+  .hide-button a:hover{color: #fc9335;text-decoration: underline;}
+  .list-button{float: right;margin-right:40px;margin-top:10px;}
+  .pay-again{width: 172px;height: 42px;background:#695e59;color: #ffffff;font-size: 18px;text-align: center;line-height: 42px;}
+  .pay-again a{color: #ffffff;cursor: pointer;}
+  .pay-again a:hover{color: #ffffff;}
+  .list-button p{font-size: 24px;color: #e13f38;text-align: center;line-height:60px}
+  .user-order-details{width: 100%;margin-top: 52px; display: none;}
+  .user-order-details li{width: 100%;border-bottom: 1px dashed #af9e89;}
+  .product-total{width: 92%;margin: 0 auto;font-size: 18px;color: #695e59;overflow: hidden;}
+  .shiping-hanging{width: 92%;margin: 0 auto;font-size: 18px;color: #695e59;overflow: hidden;line-height: 36px;}
+  .sub{width: 92%;margin: 0 auto;overflow: hidden;font-size: 24px;color: #695e59;margin-top: 40px;}
+  .tf{margin-left: 40px;float: left;    color: #695e59;}
+  .ta{margin-right: 60px;float: right;    color: #e13f38;}
+  .ship-address{width:83%;margin: 0 auto}
+  .ship-met{width: 83%;margin: 0 auto}
+  .payment{width: 83%;margin: 0 auto}
+  .ship-address h2,.ship-met h2,.payment h2{margin-bottom:20px;margin-top:20px;font-size: 24px;    color: #695e59;}
+  .ship-address p,.ship-met p{font-size: 18px;color:#695e59;line-height: 32px}
+  .met-pic{width:125px;height:42px;border:1px  solid #695e59;;margin-bottom: 50px;}
+  .met-pic img{width: 100%;}
+  .center-loadmore{width: 214px;height:40px;background: #695e59; font-size: 26px; text-align: center;line-height: 40px;color:#ffffff;margin:46px auto;}
+    @media screen and (max-width: 690px){
+      .user_con_bd_box{padding:0;}
+      .user_con_bd{padding: 0;}
+      .user-list-pic{width: 100px;height: 100px;margin-top: 5%;}
+      .user-list-details{margin-top: 5%;font-size: 12px;}
+      .user-list-details h4{width:80px !important;}
+      .list-button{margin-right:0%;margin-top: 8%;}
+      .pay-again{width:100px;height:35px;line-height:35px;font-size: 12px;}
+      .unpaid-play, .unpaid-service{width: 100%;}
+      .unpaid-service{margin-top:5%;width: 98%;}
+      .unpaid-play{margin-top:5%;}
+      .tf{margin-left: 20px;}
+      .ta{margin-right: 40px;}
+      .time{width: 100%;margin-left: 0px;height: 50%}
+      .user-id{width: 100%;height: 50%}
+      .user-header{height: 100px;}
+    }
+    .user-list-details h4{text-overflow: ellipsis;overflow: hidden;white-space: nowrap;width: 250px;text-align: left;}
+    .user-list-details h4 a{color: #000000;}
+    .user-list-details h4 a:hover{color: #000000;}

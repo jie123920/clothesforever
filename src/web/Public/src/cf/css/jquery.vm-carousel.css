@@ -1,0 +1,34 @@
+
+/* ========================================================================= *\
+    vmcarousel plugin
+\* ========================================================================= */
+
+.vmc-container{position: relative;
+    height:607px;}
+.vmc-viewport{overflow: hidden;}
+
+.vmcarousel{list-style-type: none; padding: 0; margin: 0; width: 100%;}
+.vmcarousel:after{content: ''; display: table; clear: both;}
+.vmcarousel > li{float: left;height:510px;}
+.vmcarousel > li img{ display: block; margin: 150px auto; max-width: 100%;}
+
+.vmc-container.hide-controls .vmc-arrow-left, .vmc-container.hide-controls .vmc-arrow-right{display: none;}
+.vmc-centered{ padding: 10px 0; }
+.vmc-centered img { transition: all 0.3s ease; }
+.vmc-centered .vmc_active img { transform: scale(1.6); }
+.vmc-arrow-left, .vmc-arrow-right{
+    position: absolute; top: 50%; left: -15px; width: 72px; height: 90px; margin-top: -25px; overflow: hidden;
+    opacity: 0; border-radius: 50%; transition: opacity 0.3s ease;
+    text-align: center;
+}
+.vmc-arrow-left{    background: url(../images/a_1.png) no-repeat left top;
+    left: 0px;}
+.vmc-arrow-right{left: auto; right: -15px;    background: url(../images/b-1.png) no-repeat right top;
+    right: 0px;}
+.vmc-container:hover .vmc-arrow-left, .vmc-container:hover .vmc-arrow-right{opacity: 1;}
+
+.vmc-arrow-left:hover:after, .vmc-arrow-right:hover:after{color: white;}
+
+.vmc-container img[src$=".svg"]{width: 100% !important; height: auto !important; max-height: 100%;}
+
+.notransition{-webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; -ms-transition: none !important; transition: none !important;}

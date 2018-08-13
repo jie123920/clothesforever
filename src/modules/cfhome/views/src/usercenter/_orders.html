@@ -1,0 +1,156 @@
+<?php
+use yii\helpers\Html;
+?>
+<?php if($order_list):?>
+<?php foreach($order_list as $v):?>
+<style>
+    .user_con_bd{min-height: 0;}
+</style>
+<div class="user_con_bd">
+    <!--  头部 -->
+    <div class="user-header">
+        <div class="time">
+            <span class="user-year"><?=date('Y-m-d',$v['createtime'])?></span>
+            <span class="user-time"><?=date('H:i:s',$v['createtime'])?></span>
+        </div>
+        <div class="user-id">
+            <span><?=Yii::t('shop','OrderID')?>:</span>
+            <span class="app_order_id"><?=$v['id']?></span>
+        </div>
+    </div>
+    <!-- //支付时间 -->
+    <div class="uesr-unpaid">
+        <div class="unpaid-title">
+            <?php  $time = ($v['createtime']+6*60*60)-time();?>
+            <?php if($time<0 && $v['status'] == 0):?>
+            <strong><?=Yii::t('shop','InvalidOrder')?></strong>
+            <?php endif;?>
+            <?php if(in_array($v['status'],[0]) && $time>0):?>
+            <strong><?=Yii::t('shop','Unpaid')?></strong>
+            <?php endif;?>
+            <?php if(in_array($v['status'],[3]) && $time>0):?>
+            <strong><?=Yii::t('shop','Pending')?></strong>
+            <?php endif;?>
+            <?php if(in_array($v['status'],[1])):?>
+                <?php if(in_array($v['logistics_status'],[11])):?>
+                <strong><?=Yii::t('shop','WaitDelivery')?></strong>
+                <?php endif;?>
+                <?php if(in_array($v['logistics_status'],[12])):?>
+                <strong><?=Yii::t('shop','Shipped')?></strong>
+                <?php endif;?>
+                <?php if(in_array($v['logistics_status'],[13])):?>
+                <strong><?=Yii::t('shop','Signed')?></strong>
+                <?php endif;?>
+            <?php endif;?>
+        </div>
+        <div>
+            <?php if($v['status'] == 0 && $time>0):?>
+            <div class="unpaid-play"><a target="_blank" href="javascript:void(0);"><?=Yii::t('shop','PayNow')?></a></div>
+            <?php endif;?>
+            <div class="unpaid-service"><a target="_blank" href="/support"><?=Yii::t('shop','Customer Service')?></a></div>
+        </div>
+    </div>
+    <!--  订单列表 -->
+    <div class="user-list">
+        <ul>
+            <?php
+                $products = $v['products'];
+            ?>
+            <?php if($products):?>
+            <?php foreach($products as $product):?>
+            <li>
+                <div class="user-list-pic"><img src="<?=isset($product['cover'])?$product['cover']:''?>" /></div>
+                <div class="user-list-details">
+                    <h4><?=$product['name']?></h4>
+                    <?php if(isset($product['spec'])):?>
+                        <?php foreach($product['spec'] as $spec):?>
+                            <p><?=$spec['spec_name']?> : <strong><?=$spec['spec_value']?></strong></p>
+                        <?php endforeach;?>
+                    <?php endif;?>
+                    <p>Quantity : <strong><?=$product['number']?></strong></p>
+                </div>
+                <div class="list-button">
+                    <p><span>$</span><?=$product['amount']?></p>
+                </div>
+            </li>
+            <?php endforeach;?>
+            <?php endif;?>
+        </ul>
+    </div>
+    <!-- 隐藏按钮 -->
+    <div class="hide-button"><a class="user-click"><?=Yii::t('shop','OrderDetails')?> &nbsp<i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+    <!-- 订单详情 -->
+    <div class="user-order-details">
+        <ul>
+            <li>
+                <div class="product-total">
+                    <div class="total-name tf"><?=Yii::t('shop','Product')?></div>
+                    <div class="total-price ta">$<?=$v['amount']?></div>
+                </div>
+                <?php if($v['coupon_amount']):?>
+                <div class="product-total">
+                    <div class="total-name tf"><?=Yii::t('shop','Promo code')?></div>
+                    <div class="total-price ta">-$<?=floatval($v['coupon_amount'])?></div>
+                </div>
+                <?php endif;?>
+                <div class="shiping-hanging">
+                    <div class="ship-name tf"><?=Yii::t('shop','Shipping&Handing')?></div>
+                    <div class="ship-price ta">$<?=$v['freight']?></div>
+                </div>
+                <div class="sub">
+                    <div class="sub-name tf"><?=Yii::t('shop','Subtotals')?></div>
+                    <div class="sub-price ta">$<?=$v['total_amount']?></div>
+                </div>
+            </li>
+            <li>
+                <div class="ship-address">
+                    <h2><?=Yii::t('shop','Shipping Address')?></h2>
+                    <p><?=$v['full_name']?> <?=$v['phone']?></p>
+                    <p><?=$v['address']?></p>
+                </div>
+            </li>
+            <li>
+                <div class="ship-met">
+                    <h2><?=Yii::t('shop','Shipping Method')?></h2>
+                    <p><?=htmlspecialchars_decode(nl2br($v['logistics_information']))?> <?=htmlspecialchars_decode(nl2br($v['logistics_number']))?></p>
+                </div>
+            </li>
+            <li style="border:none">
+                <div class="payment">
+                    <h2><?=Yii::t('shop','Payment Method')?></h2>
+                    <div class="met-pic"><img src="<?=isset($v['channel_method']['img'])?$v['channel_method']['img']:''?>"/></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<?php endforeach;?>
+<?php endif;?>
+<?php $this->registerJs("    
+    $(document).delegate('.unpaid-play','click',function(){
+        if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            var id = $(this).parents('.user_con_bd').find('.app_order_id').text();
+                  window.location.href='".\YII::$app->params['MY_URL']['M_SHOP_URL']."/payinfo?order_app='+ id;
+                      return false;
+}else{
+            var order_id = $(this).parents('.user_con_bd').find('.app_order_id').text();
+            $.post('/ucenter/url',{order_id: order_id},function(data){
+                if(data.code == 0){
+                     var shopUrl = data.data.url;
+                     layer.open({
+                     type: 2,
+                     title: false,
+                     closeBtn: 1, //不显示关闭按钮
+                     shade: [0],
+                     area: ['780px', '644px'],
+                     anim: 2,
+                     content: [shopUrl, 'no'], //iframe的url，no代表不显示滚动条
+                    });
+                  }else{
+                    alert(data.message);
+                 }
+             },'json');
+              return false;
+       }
+    });
+")?>

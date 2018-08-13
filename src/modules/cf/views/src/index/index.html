@@ -1,0 +1,560 @@
+<?php
+use app\helpers\myhelper;
+?>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><?=\YII::t('common','NewPlayerCode')?></h4>
+                </div>
+                <div class="modal-body">
+                    <dl class="inp"><input id="copytext" readonly="readonly" type="text" value="MyVxwRDYj2GdvZ2" placeholder="MyVxwRDYj2GdvZ2"><a id="copy" href="javascript:;"><?=\YII::t('common','Copy')?></a></dl>
+                    <dl>
+                        <?=\YII::t('common','Note')?>:<br>
+                        1.<?=\YII::t('common','giftGold')?>.<br/>
+                        2.<?=\YII::t('common','useEach')?>.<br/>
+                        3.<?=\YII::t('common','clickRedeem')?>.
+                    </dl>
+                    <div class="row dis">
+                        <div class="col-xs-6">
+                            <img width='237' height='237' src="<?=__IMG__?>/demo1.png">
+                        </div>
+                        <div class="col-xs-6">
+                            <img width='237' height='237' src="<?=__IMG__?>/demo2.png">
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="sur-bg" style="position: relative">
+<div class="sur-contanier">
+    <div class="facebok-video">
+    <div class="cf-wrap">
+        <div class="cf-left">
+            <div id="facebook">
+                <div class="facebook_small">
+                    <div class="fb-page" data-href="https://www.facebook.com/ClothesForever-374904209527457"
+                         data-width="500" data-height="315" data-hide-cover="false" data-show-facepile="false"
+                         data-show-posts="false"></div>
+                </div>
+                <div class="facebook_big">
+                    <div class="fb-page" data-href="https://www.facebook.com/ClothesForever-374904209527457" data-height="471" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true">
+                        <div class="fb-xfbml-parse-ignore">
+                            <blockquote cite="https://www.facebook.com/ClothesForever-374904209527457">
+                                <a href="https://www.facebook.com/ClothesForever-374904209527457">Clothes Forever <?=\YII::t('common','Game')?> Facebook</a>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sharer" style="overflow: hidden;display: none;">
+                <ul>
+                    <li class="snap snaps" style="cursor: pointer;"><a><i class="fa fa-snapchat" aria-hidden="true"></i></a></li>
+                    <li><a target="_blank" href="https://twitter.com/clothesforever5"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a target="_blank" href="https://www.facebook.com/ClothesForever-374904209527457/"><i class=" fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a target="_blank" href="https://www.youtube.com/channel/UCsmS6q4BrvPdDZT7iKyG8ww"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/clothesforeverapp/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a target="_blank" href="https://www.pinterest.com/clothesforer/"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="cf-right" style="display: none">
+                <div class="cf-games-info">
+                    <h2>Your Servers</h2>
+                    <p><a href="javascript:"><span>Enter here</span></a></p>
+                </div>
+                <div class="cf-games-info">
+                    <h2>All Servers</h2>
+                    <p><a href="javascript:"><span>Europe</span></a></p>
+                    <p><a href="javascript:"><span>America</span></a></p>
+                    <p><a href="javascript:"><span>Asia</span></a></p>
+                </div>
+            </div>
+            <div class="invite_code"><a data-toggle="modal" data-target="#myModal" href="javascript:;"><?=\YII::t('common','NewPlayerCode')?></a></div>
+        </div>
+    </div>
+    <div class="video-list">
+    <div class="list-nav">
+        <ul>
+            <li class="c-cur"><?=\YII::t('common','Video')?></li>
+            <li><?=\YII::t('common','Events')?></li>
+            <li><?=\YII::t('common','Announcements')?></li>
+        </ul>
+    </div>
+    <div class="list-info">
+        <div class="video-wrap" style="display: block">
+            <!--<h2><?=\YII::t('common','Video')?></h2>-->
+            <?php if(isset($firstvideo['video_url'])){?>
+                <div class="list-video"><iframe src="<?=$firstvideo['video_url']?>?enablejsapi=1" id="player" width="100%" height="386px" frameborder="0"></iframe></div>
+            <?php }?>
+            <div class="cf-v-info">
+                <div>
+                    <ul>
+                        <?php if(!empty($videoList)){?>
+                            <?php foreach($videoList as $data){?>
+                                <li videosrc="<?=$data['video_url']?>?enablejsapi=1"><img src="<?=$data['img_source']?>" alt=""/></li>
+                            <?php }?>
+                        <?php }?>
+                    </ul>
+                </div>
+                <a class="arrow-pre" href="javascript:;"></a>
+                <a class="arrow-next" href="javascript:;"></a>
+            </div>
+        </div>
+        <div class="news-wrap" style="display: none;">
+            <!--<h2><?=\YII::t('common','Events')?></h2>-->
+            <div class="news-more"><a target="_blank" href="/news?fid=<?=EVENTS_ID?>"><?=\YII::t('common','SeeMore')?></a></div>
+            <img src="<?php $first=current($events);  if(strstr($first['img_source'],'http')||strstr($first['img_source'],'//')){echo $first['img_source'];}else{echo '/Uploads/ArticlePicture/'.$first['img_source'];}?>" alt="clothes forever" class="news-face"/>
+            <ul>
+                <?php if(!empty($events)){?>
+                    <?php foreach($events as $v):?>
+                        <li>
+                            <h3><a target="_blank" href="/news/<?=$v['id']?>/<?=$v['urltitle']?>"><?=$v['title']?></a></h3>
+                            <p><?=$v['description']?></p>
+                            <time><?=date('D M,Y',$v['create_time'])?></time>
+                        </li>
+                <?php break;?>
+                    <?php endforeach;?>
+                <?php }?>
+            </ul>     
+        </div>
+        <div class="news-wrap" style="display: none;">
+            <!--<h2><?=\YII::t('common','Announcements')?></h2>-->
+            <div class="news-more"><a target="_blank" href="/news?fid=<?=ANNOUNCEMENT_ID?>"><?=\YII::t('common','SeeMore')?></a></div>
+            <img src="<?php $first=current($announcements);  if(strstr($first['img_source'],'http')||strstr($first['img_source'],'//')){echo $first['img_source'];}else{echo '/Uploads/ArticlePicture/'.$first['img_source'];}?>" alt="clothes forever" class="news-face"/>
+            <ul>
+                <?php if(!empty($announcements)){?>
+                    <?php foreach($announcements as $v):?>
+                        <li>
+                            <h3><a target="_blank" href="/news/<?=$v['id']?>/<?=$v['urltitle']?>"><?=$v['title']?></a></h3>
+                            <p><?=$v['description']?></p>
+                            <time><?=date('D M,Y',$v['create_time'])?></time>
+                        </li>
+                <?php break;?>
+                    <?php endforeach;?>
+                <?php }?>
+            </ul>    
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="pc-style">
+        <div class="list-nav list-nav2">
+            <ul style="background: none;">
+                <li class="c-cur" ><?=\YII::t('common','CHARACTERS')?></li>
+                <li ><?=\YII::t('common','LOOKS')?></li>
+            </ul>
+        </div>
+        <div class="list-info">
+            <div class="cf-intr">
+                <div class="cf-mask">
+                    <script>
+                        $(document).ready(function(){
+
+                            $(".main_visual").hover(function(){
+                                $("#btn_prev,#btn_next").fadeIn()
+                            },function(){
+                                $("#btn_prev,#btn_next").fadeOut()
+                            });
+
+                            $dragBln = false;
+
+                            $(".main_image").touchSlider({
+                                flexible : true,
+                                speed : 1000,
+                                autoPlay: false,
+                                btn_prev : $("#btn_prev"),
+                                btn_next : $("#btn_next"),
+                            });
+
+                            $(".main_image").bind("mousedown", function() {
+                                $dragBln = false;
+                            });
+
+                            $(".main_image").bind("dragstart", function() {
+                                $dragBln = true;
+                            });
+
+                            $(".main_image a").click(function(){
+                                if($dragBln) {
+                                    return false;
+                                }
+                            });
+
+                            timer = setInterval(function(){
+                                $("#btn_next").click();
+                            }, 5000000);
+                            clearInterval(timer);
+                            $(".main_visual").hover(function(){
+                                clearInterval(timer);
+                            },function(){
+                                timer = setInterval(function(){
+                                    $("#btn_next").click();
+                                },50000000);
+                            });
+
+                            $(".main_image").bind("touchstart",function(){
+                                clearInterval(timer);
+                            }).bind("touchend", function(){
+                                timer = setInterval(function(){
+                                    $("#btn_next").click();
+                                }, 50000000);
+                            });
+
+                        });
+                    </script>
+                    <div class="main_visual">
+                        <div class="main_image">
+                            <ul>
+                                <?php if(!empty($people_list)){?>
+                                <?php foreach($people_list as $v):?>
+                                <li>
+                                    <div class="ds"><img src="<?=myhelper::resize($v->cover,400,604);?>" alt=""/></div>
+                                    <div class="dd">
+                                        <div class="rongqi">
+                                            <?php if($v->language):?>
+                                            <?=$v->language->content?>
+                                            <?php endif;?>
+                                        </div>
+                                    </div>
+                                </li>
+                                <?php endforeach;?>
+                                <?php }?>
+                            </ul>
+                            <a href="javascript:;" id="btn_prev"></a>
+                            <a href="javascript:;" id="btn_next"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cf-style-show">
+                <div class="cf-mask">
+                    <link rel="stylesheet" href="<?=__CSS__?>/lunbo.css">
+                    <link rel="stylesheet" href="<?=__CSS__?>/bootstrap.min.css">
+                    <link rel="stylesheet" type="text/css" href="<?=__CSS__?>/jquery.vm-carousel.css">
+                    <script src="<?=__JS__?>/modernizr.js"></script>
+                    <div class="container" style="width: 100%;position: relative">
+                        <ul class="vmcarousel-centered-infitine vmc-centered">
+                            <?php if(!empty($daxiaoList)){?>
+                                <?php foreach($daxiaoList as $v):?>
+                                    <li><img src="<?=myhelper::resize($v['img_url'],320,476);?>" alt="" width="200">
+                                        <div class="clothes-name">
+                                            <?php if($v->language):?>
+                                            <?=$v->language->content?>
+                                            <?php endif;?>
+                                        </div>
+                                    </li>
+                                <?php endforeach;?>
+                            <?php }?>
+                        </ul>
+                        <div class="cf-share">
+                            <a href="javascript:window.open('http://twitter.com/home?status='+encodeURIComponent(document.location.href)+' '+encodeURIComponent(document.title),'_blank','toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=600, height=450,top=100,left=350');void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="javascript:share_fb()" ><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-shape="round" data-pin-height="28"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                            <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+                        </div>
+                    </div>
+                </div>
+                <script src="<?=__JS__?>/jquery.vm-carousel.js"></script>
+            </div>
+        </div>
+    </div>
+<!--移动端-->
+    <div class="Mobile-style">
+        <div class="modal-intr">
+            <h2 style="text-align: center;color: #695e59;font-size: 24px;">LOOKS</h2>
+            <link rel="stylesheet" href="<?=__CSS__?>/swiper.min.css">
+            <script src="<?=__JS__?>/swiper.min.js"></script>
+            <div class="swiper-containers">
+                <div class="swiper-wrapper">
+                    <?php if(!empty($daxiaoList)){?>
+                        <?php foreach($daxiaoList as $v):?>
+                            <div class="swiper-slide"><img src="<?=myhelper::resize($v->img_url,320,476);?>"></div>
+                        <?php endforeach;?>
+                    <?php }?>
+                </div>
+            </div>
+            <script>
+                var mySwiper = new Swiper('.swiper-containers',{
+                    slidesPerView : 3,
+                    spaceBetween : 20,
+                })
+            </script>
+        </div>
+        <div class="modal-style-show">
+            <div class="swiper-container">
+                <h2 style="text-align: center;color: #fff;font-size: 24px;">CHARACTERS</h2>
+                <div class="swiper-wrapper">
+                    <?php if(!empty($people_list)){?>
+                    <?php foreach($people_list as $v):?>
+                    <div class="swiper-slide">
+                        <div class="sw-bg">
+                            <div class="sw-pic"><img src="<?=myhelper::resize($v->cover,400,604);?>"></div>
+                            <div class="sw-mengc"></div>
+                            <div class="sw-wenzi">
+                                <?php if($v->language):?>
+                                <?=$v->language->content?>
+                                <?php endif;?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach;?>
+                    <?php }?>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <script>
+                var mySwiper = new Swiper ('.swiper-container', {
+                    direction: 'horizontal',
+                    loop: true,
+                    // 如果需要分页器
+                    pagination: '.swiper-pagination',
+                })
+            </script>
+        </div>
+    </div>
+
+    <div class="cf-wrap-list">    
+        <div class="cf-news">
+            <?php
+                $img = '';
+                if(!empty($style1)){
+                     foreach($style1 as $first){
+                         if(strstr($first['img_source'],'http') || strstr($first['img_source'],'//')){
+                            $img =  $first['img_source'];
+                         }else{
+                            $img =  '/Uploads/ArticlePicture/'.$first['img_source'];
+                         }
+                         break;
+                     }
+                 }
+            ?>
+            <img src="<?=$img?>" alt="" title="" class=""/>
+            <div class="cf-aa">
+                <h2>STRATEGY</h2>
+                <a target="_blank" href="/news?fid=<?=STRATEGY_ID?>"><?=\YII::t('common','More')?></a>
+            </div>
+           <ul>
+               <?php if(!empty($style1)){?>
+                   <?php foreach($style1 as $v):?>
+                        <li><span><i class="fa fa-angle-right" aria-hidden="true"></i></span><a target="_blank" href="/news/<?=$v['id']?>/<?=$v['urltitle']?>"><?=$v['title']?></a></li>
+                   <?php endforeach;?>
+               <?php }?>
+           </ul>
+       </div>
+        <div class="cf-news">
+            <?php
+                  $img = '';
+                 if(!empty($style2)){
+                     foreach($style2 as $first2){
+                         if(strstr($first2['img_source'],'http') || strstr($first2['img_source'],'//')){
+                            $img =  $first2['img_source'];
+                         }else{
+                            $img =  '/Uploads/ArticlePicture/'.$first2['img_source'];
+                         }
+                         break;
+                     }
+                }
+            ?>
+            <img src="<?=$img?>" alt="" title="" class=""/>
+            <div class="cf-aa">
+                <h2>GUIDE</h2>
+                <a target="_blank" href="/news?fid=<?=GUIDE_ID?>"><?=\YII::t('common','More')?></a>
+            </div>
+           <ul>
+               <?php if(!empty($style2)){?>
+                   <?php foreach($style2 as $v):?>
+                        <li><span><i class="fa fa-angle-right" aria-hidden="true"></i></span><a target="_blank" href="/news/<?=$v['id']?>/<?=$v['urltitle']?>"><?=$v['title']?></a></li>
+                   <?php endforeach;?>
+               <?php }?>
+           </ul>
+        </div>
+    </div>
+
+    <div class="sur-show-wrap">
+        <h2><?=\YII::t('common','screenshot')?></h2>
+        <div class="sur-show-info">
+            <ul id="sur-img">
+                <?php if(!empty($sList)){?>
+                    <?php foreach($sList as $v):?>
+                        <li><a href="javascript:;"><img src="<?=$v['img_url'];?>"/></a></li>
+                    <?php endforeach;?>
+                <?php }?>
+            </ul>
+        </div>
+        <a href="javascript:;" class="sur-pre"></a>
+        <a href="javascript:;" class="sur-next"></a>
+    </div>
+    <div class="Mobile-sur-show">
+        <h2 style="font-size: 26px;text-align: center;color: #695e59; margin-bottom: 20px;">SCREENSHOTS</h2>
+        <div class="swiper-containerv">
+            <div class="swiper-wrapper">
+                <?php if(!empty($sList)){?>
+                <?php foreach($sList as $v):?>
+                <div class="swiper-slide"><img src="<?=$v['img_url'];?>"></div>
+                <?php endforeach;?>
+                <?php }?>
+            </div>
+        </div>
+        <script>
+            var mySwiper = new Swiper ('.swiper-containerv', {
+                direction: 'horizontal',
+                loop: true,
+            })
+        </script>
+    </div>
+</div>
+<div class="cf-game-bg"><a href="javascript:;"><?=\YII::t('common','PlayNow')?></a></div>
+
+<!--</div>-->
+
+<script src="<?=__JS__?>/jquery.event.drag-1.5.min.js"></script>
+<script src="<?=__JS__?>/jquery.touchSlider.js"></script>
+<script src="<?=__LAYER__?>/layer.js"></script>
+
+<script type="text/javascript">
+//    $(function(){
+//        Carousel.init($("#carousel"));
+//        $("#carousel").init();
+//    });
+
+    function share_fb() {
+        var image = $('.vmc_active > img').attr('src');
+        var url = '<?=PROTOCOL.'://'.$_SERVER['HTTP_HOST']?>';
+        window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(url+'?image='+image)+'&amp;t='+encodeURIComponent(document.title),'_blank','toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=600, height=450,top=100,left=350');
+    }
+</script>
+
+<script>
+    //放大轮播图 玩家截图
+    ;!function(){
+        layer.config({
+            extend: 'extend/layer.ext.js'
+        });
+        layer.ready(function(){
+            //使用相册
+            layer.photos({
+                photos: '.swiper-wrapper'
+            });
+        });
+    }();
+</script>
+<script>
+    //放大轮播图 玩家截图
+    ;!function(){
+        layer.config({
+            extend: 'extend/layer.ext.js'
+        });
+        layer.ready(function(){
+            //使用相册
+            layer.photos({
+                photos: '#sur-img'
+            });
+        });
+    }();
+</script>
+<script type="text/javascript">
+//youtube视频
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player',{
+          events: {
+//            'onReady': onPlayerReady
+            // 'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+      function clicks()
+      {
+        player.playVideo();
+      }
+
+      // 4. The API will call this function when the video player is ready.
+        function stopVideo() {
+            player.stopVideo();
+        }
+//      function onPlayerReady(event) {
+//        event.target.playVideo();
+//      }
+      var done = false;
+      function onPlayerStateChange(event) {
+        console.log(event)
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player2.stopVideo();
+      }
+    $('.cf-v-info li').on('click',function(){
+        var lisrc = $(this).attr('videosrc');
+        $('.list-video').find('iframe').attr('src',lisrc);
+        clicks();
+    })
+
+//    $('#cf-hair li').on('click',function(){
+//        var picsrc = $(this).attr('picsrc');
+//        console.log(picsrc)
+//        $('#cf_portraits').find('img').attr('src',picsrc);
+//    })
+   $('#cf-hair li').each(function(){
+       var picsrc = $(this).attr('picsrc');
+       $('#cf_portraits').find('img').attr('src',picsrc);
+       $(this).on("click",function(){
+           $('#cf_portraits').find('img').attr('src',picsrc);
+       })
+})
+    $(function(){
+        $('#copy').click(function(){
+            var val = $('#copytext').attr('value');
+            copyCard(val);
+        })
+    })
+
+    function copyCard(val) {
+        if(typeof(val) == 'undefined') val = $.trim($("#new_card_value").val());
+        try{
+            window.clipboardData.setData("Text",val);
+            layer.msg("copy succeed！");
+        }catch(e){
+            $('#copytext').focus();
+            $('#copytext').select();
+            layer.msg("<?=\YII::t('common','copy_tip')?>");
+        }
+    }
+</script>
+<script>
+    $(function(){
+        var $wd = $(window),
+            $img = $('img'),
+            imgTop,          //图片距离顶部高度
+            scTop,             //滚动条高度
+            wH;           //窗口高度
+            wH = $wd.height();         //获得可视浏览器的高度
+        $wd.scroll( function() {
+            scTop = $wd.scrollTop();       //获取滚动条到顶部的垂直高度
+        $img.each(function(){
+            imgTop =  $(this).offset().top;
+            if(imgTop - wH < scTop &&     //图片必须出现在窗口底部上面
+            imgTop - wH > 0 &&        //排除首页图片
+            $(this).attr('src') != $(this).data('url')){          //排除已经加载过的图片
+                $(this).attr({
+                src: $(this).data('url')
+                });
+            }
+            });
+        });
+    });
+</script>
+<script src="<?=__JS__?>/sur-public.js"></script>

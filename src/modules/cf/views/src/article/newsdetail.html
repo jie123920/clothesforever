@@ -1,0 +1,34 @@
+<body>
+    <div class="sur-newsinfo cfnews-detail">
+        <div class="news-nav-title"><a href="/"><?=\YII::t('common','Home')?></a>
+			<?php foreach($arrPids as $v){?>
+			-> <a href="/news?fid=<?=$v['id']?>"><?=$v['name']?></a>
+			<?php }?></div>
+        <h1><?=$v['name']?></h1>
+        <div class="news-detail-box">
+	        	<h2><?=$article['title']?></h2>
+	        	<p class="news-v"><a href="javascript:;"><time><?=date('d M, Y',$article['create_time'])?> [GMT]</time></a></p>
+	        <div class="detail-info">
+				<?=htmlspecialchars_decode($article['message'])?>
+			</div>
+	        <div class="sur-newsshare" style="text-align:left;">
+				<span><?=\YII::t('common','share')?>:</span>
+				<a href="javascript:void(window.open('http://www.facebook.com/sharer.php?u='+'<?=PROTOCOL.'://'.$_SERVER['HTTP_HOST'].'/news/'.$article['id'].'/'.$article['urltitle'].'?image='.$article['img_url'].'&t='.$article['urltitle']?>'+'&t=<?=$article['title']?>','Share','width=600,height=400'))"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				<a href="javascript:void(window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(document.location.href)+'&text=<?=$article['title']?>','Share','width=600,height=400'))"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+
+				<a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-shape="round" data-pin-height="28"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+				<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+			</div>
+        </div>
+    </div>
+	<div class="sharer" style="overflow: hidden;display: none;margin-top: 50px">
+		<ul>
+			<li class="snap snaps" style="cursor: pointer;margin-left: 50px;"><a><i class="fa fa-snapchat" aria-hidden="true"></i></a></li>
+			<li><a target="_blank" href="https://twitter.com/clothesforever5"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+			<li><a target="_blank" href="https://www.facebook.com/ClothesForever-374904209527457/"><i class=" fa fa-facebook" aria-hidden="true"></i></a></li>
+			<li><a target="_blank" href="https://www.youtube.com/channel/UCsmS6q4BrvPdDZT7iKyG8ww"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+			<li><a target="_blank" href="https://www.instagram.com/clothesforeverapp/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+			<li><a target="_blank" href="https://www.pinterest.com/clothesforer/"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+		</ul>
+	</div>
+</body>

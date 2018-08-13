@@ -1,0 +1,150 @@
+body,html{background: none;}
+@font-face {font-family: "ebrima";
+    src: url('../fonts/ebrima.eot'); /* IE9*/
+    src: url('../fonts/ebrima.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/ebrima.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/ebrima.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/ebrima.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.left-nav{width:23%;float: left;}
+.right-list{width:75%;float: right;}
+.accordion {width: 100%;max-width: 360px;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;}
+.accordion .link {font-family:"ebrima";;cursor: pointer;display: block;padding: 15px 15px 15px 15px;color: #555148;font-size: 18px;position: relative;-webkit-transition: all 0.4s ease;-o-transition: all 0.4s ease;transition: all 0.4s ease;}
+.accordion li:last-child .link { border-bottom: 0;}
+.accordion li i { position: absolute;top: 16px;left: 12px;font-size:24px;color: #555148;-webkit-transition: all 0.4s ease;-o-transition: all 0.4s ease;transition: all 0.4s ease;  }
+.accordion li i.fa-angle-down {right: 12px;left: auto;font-size:24px;}
+.accordion li.open .link { color: #555148;}
+.accordion li.open i { color: #555148;}
+.link a{color: #555148;}
+.accordion li.open i.fa-angle-down {-webkit-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);transform: rotate(180deg);  }
+.submenu { display: none;font-size: 14px;  }
+.submenu a {font-family: serif;display: block;text-decoration: none;color: #777165;padding: 12px;padding-left: 42px;-webkit-transition: all 0.25s ease;-o-transition: all 0.25s ease;transition: all 0.25s ease;font-family:"ebrima";  }
+.submenu a:hover {background: #af9e8a;color: #FFF;}
+.list-title{overflow: hidden;height: 38px;border-bottom: 1px solid  #695e59;}
+.crumbs{line-height: 38px;width: 1060px;margin: 90px auto 0px auto;}
+.crumbs a{font-size: 14px;color: #695e59}
+.crumb a:hover{color: #695e59;}
+.cf-search{width: 200px;height: 30px;border:1px solid #695e59;position: relative;float: right;}
+.cf-search .input_text[type=text]{width: 100%;height:100%;font-size: 16px;color: #af9e89;border:none;}
+.cf-search i{position: absolute;top:3px;right:5px;color:#695e59;font-size: 18px;}
+.select-area{width: 100%;margin-top: 8px;}
+.select-area form{width: 100%;}
+.cf-area{float: left;margin-left: 10px;}
+.cf-select-style{border:1px solid #574f44;color:#574f44;font-size: 14px;font-family: "ebrima";}
+.select1{margin-left:0px;}
+.select1 select{width:120px;}
+.select2 select{width:90px;}
+.select3 select{width:70px;}
+.open1{background: #af9e8a;}
+.newest{float: right; font-family: "ebrima";}
+.newest select{width: 150px;    font-family: "ebrima";}
+.newest span{margin-right: 20px;font-size: 14px;color: #afa7a4;}
+.cf-commodities{width: 100%;overflow: hidden;}
+.cf-commodities ul{overflow: hidden;}
+.cf-commodities ul li{width: 240px;height:350px;float: left;margin:10px 25px 0px 0;position: relative;}
+.cf-commodities-pic{width: 100%;height: 240px;position: relative;line-height: 236px;text-align: center;border:1px solid #d4cabe;overflow: hidden;}
+.cf-commodities-pic img{width: 100%;}
+.cf-commodities ul li h1{margin-top:10px;
+    font-size: 14px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #695e59;
+    white-space: nowrap;line-height: 20px;height:20px;font-family: "ebrima";}
+.cf-commodities ul li h1:nth-child(3) {
+    margin-top: 0;
+}
+.cf-commodities-price{font-size: 16px;color: #695e59;font-family: serif;position: relative;margin-top: 5px;font-family: "ebrima";}
+.cf-commodities ul li h1 a:hover{color:#695e59;}
+.cf-follow{position: absolute;bottom:22px;right:5px;}
+.cf-follow i{font-size: 16px;}
+.cf-follow .fa-heart{color: #e23f36;display: none}
+.cf-follow .fa-heart-o{color: #b3a292;}
+.add_cart{height:30px;position: absolute;top:0px;right:3px;font-size:32px;line-height:30px;text-align: center;color:#d9d8d8;display: none;cursor: pointer;}
+.add_cart:hover{color: #af9e89;}
+.car_size{width: 125px;border:1px solid #786e65;position: absolute;top:5px;left:60px;background: #fff;text-align: center;display: none;z-index: 10;}
+.car_size h1{font-size: 12px!important;color: #695e59;padding: 5px 0px;background: #fff;text-align: center!important;}
+.size_num{width: 100%;line-height: 20px;}
+.color_sum{width: 100%;margin-top: 10px;line-height: 20px;}
+.size_num span{font-size: 14px;color: #695e59;display: inline-block;cursor: pointer; width: 26px;height: 26px;margin-left: 5px;margin-top: 5px;}
+.size_span{border:1px solid #695e59;}
+.cf_submit_cart,.cf_cancel{width:110px;height:25px;font-size: 14px;text-align: center;line-height: 25px;margin:10px auto;}
+.cf_submit_cart{background:#564f47;color: #fff; cursor: pointer;}
+.cf_cancel{background: #fff;border: 1px solid #564f47;tcolor: #685d57;cursor: pointer;}
+.color_sum span{width:26px;height:26px;display: inline-block;margin-left: 5px;margin-top: 5px;cursor: pointer;}
+.span_active{border:1px solid #695e59;}
+.color_sum span img{width: 100%;height: 100%;}
+.size_num span img{width: 100%;}
+.accordion li a:hover{color: #695e59}
+.style_list{width: 100%;height:740px;margin-top: 20px;}
+.style_list_container{width:100%;height: 93%;margin: 25px auto;}
+.style_list_left{width:25%;height: 100%;float: left;}
+.style_list_left img{width: 100%;margin-top: 80px;}
+.style_list_right{width: 75%;height: 100%;float: right;}
+.swiper-container {width: 475px;height:715px!important;}
+
+.recommend-title{position: absolute;top: -10px;left: 28%;font-size: 14px;color: #695e59;background: #fff;}
+.recommend-title li{float: left;padding: 0 50px;cursor: pointer;}
+.recommend-title li:first-child{border-right: 1px solid #695e59;}
+.choose-live{color: #e13f38}
+.related-commodity{margin-top: 30px;}
+/*.slider3 .slide{margin-left: 30px!important;}*/
+.bx-wrapper{max-width:1037px!important;}
+.slider4 .bx-wrapper{max-width: 1060px!important;}
+/*.slider4 .slide{margin-left: 30px!important;}*/
+.cf-commodities{width: 100%;overflow: hidden;}
+.slider3 h1{
+    font-size: 14px;
+    color: #695e59;
+    height: 20px;
+    font-family: constanb;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 20px;
+    font-family: "ebrima";margin-top: 10px;
+}
+.slider4 h1{
+    font-size: 14px;
+    color: #695e59;
+    height: 20px;
+    font-family: constanb;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 20px;
+    font-family: "ebrima";
+    margin-top: 10px;
+}
+/*尺寸筛选*/
+.cf-area{position: relative;}
+.designer-title{width:140px;height: 25px;line-height: 25px;border:1px solid #695e59;}
+.designer-title span{color:#695e59;padding: 0 5px;}
+.size-caret-down,.designer-caret-down,.color-caret-down{float: right;font-size: 24px;}
+.designer-list{width:100%;border:1px solid #695e59;top:29px;left:0px;background: #fff;z-index: 10;display: none;}
+.designer-list-a{width: 100%;overflow-y: scroll;color: #574f44;font-size: 12px;}
+.designerbuttom{width: 100%;height: 30px;background: #695e59;text-align: center;line-height: 30px;}
+.designer{width: 100%;line-height: 20px;}
+.designerbuttom a{color: #fff;}
+/*颜色*/
+.color-title{width:100px;height: 25px;line-height: 22px;border:1px solid #695e59;font-family: "ebrima";}
+.color-title span{color:#695e59;padding: 0 5px;}
+.color-list{width:100%;border:1px solid #695e59;top:29px;left:0px;background: #fff;z-index: 10;display: none;}
+.color_list_f{width: 100%;overflow-y: scroll;color: #574f44;font-size: 12px;font-family: "ebrima";max-height: 250px;}
+.colorbuttom{text-align: center;line-height: 30px;}
+.colorbuttom input[type=submit]{width: 100%;  height: 32px;  background: #695e59;  border: 1px solid #695e59;color:#fff;font-family: "ebrima";}
+.color_img img{width: 12px;height: 12px;box-shadow: 2px 1px 6px #888;}
+.color_list_a{line-height: 20px;}
+
+/*尺寸*/
+.size-title{width: 80px;height: 25px;line-height: 22px;border:1px solid #695e59;font-family: "ebrima";}
+.size-title span{color:#695e59;padding: 0 5px;}
+.size-list{border:1px solid #695e59;top:29px;left:0px;background: #fff;z-index: 10;overflow: hidden;display: none}
+.size_a{width: 100%;overflow-y: scroll;color: #574f44;font-size: 12px;font-family: "ebrima"; max-height: 250px;}
+.sizeLista{float: left;width: 80px;}
+.quickFindBinHeaders{height: 25px;line-height: 25px;border-bottom:1px solid #695e59;text-align: center;padding-left: 10px;padding-right: 10px;}
+.quickFindOptionRow{line-height: 20px;}
+.sizebuttom{text-align: center;line-height: 30px;}
+.sizebuttom input[type=submit]{width: 100%;  height: 32px;  background: #695e59;  border: 1px solid #695e59;color:#fff;font-family: "ebrima";}

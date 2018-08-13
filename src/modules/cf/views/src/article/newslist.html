@@ -1,0 +1,54 @@
+<body>
+    <div class="sur-newsinfo">
+        <div class="news-nav-title" style="padding: 10px 0 18px 0%;"><a href="/"><?=\YII::t('common','Home')?></a>
+            <?php foreach($arrPids as $v){?>
+            -> <a href="/news?fid=<?=$v['id']?>"><?=$v['name']?></a>
+            <?php }?></div>
+        <h1><?=$cate_name?></h1>
+        <?php if($articlerList):?>
+            <ul class="sur-newsbox" id="news_1">
+                <?php echo $this->render('newslist_son.html',['articlerList'=>$articlerList]);?>
+            </ul>
+            <?php if($isLoading):?>
+                <div class="pull-more" id="loading"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+            <?php endif;?>
+        <?php endif;?>
+    </div>
+    <div class="sharer" style="overflow: hidden;display: none;margin-top: 50px;">
+        <ul>
+            <li class="snap snaps" style="cursor: pointer;margin-left: 50px"><a><i class="fa fa-snapchat" aria-hidden="true"></i></a></li>
+            <li><a target="_blank" href="https://twitter.com/clothesforever5"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a target="_blank" href="https://www.facebook.com/ClothesForever-374904209527457/"><i class=" fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a target="_blank" href="https://www.youtube.com/channel/UCsmS6q4BrvPdDZT7iKyG8ww"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+            <li><a target="_blank" href="https://www.instagram.com/clothesforeverapp/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a target="_blank" href="https://www.pinterest.com/clothesforer/"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+</body>
+<script src="<?=__JS__?>/sur-public.js"></script>
+<script>
+ //数据加载时期的gif加载图,用于提示用户数据正在加载!
+    var loadDiv = $('#loading');
+    //监听窗口的鼠标滚轮事件
+    var page = 1;
+    var fid = "<?=$fid?>";
+    loadDiv.on('click',function() {
+        var layer_loading_box = layer.msg('<?=\YII::t('common','Loading')?>', {icon: 16, time: 0, shade: [0.7, '#000']});
+            //发送ajax请求获取数据
+            $.ajax({
+                type: "POST",
+                url: "",
+                data:{page:page+1,fid:fid},
+                success: function(data){
+                    layer.close(layer_loading_box);
+                    //追加后端返回的数据
+                    if(data != ''){
+                        $('#news_1').append(data);
+                        page++;
+                    }else{
+                        loadDiv.hide();
+                    }
+                }
+            });
+    });
+</script>
